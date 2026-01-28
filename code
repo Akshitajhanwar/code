@@ -1,0 +1,24 @@
+Given an integer array, find the second largest element in the array. You may assume the array contains at least two elements.
+
+
+
+class Solution {
+public:
+    int secondLargestElement(vector<int>& nums) {
+        int largest = INT_MIN;
+        int slargest = INT_MIN;
+        for(int i=0;i<nums.size() ;i++){
+            if(nums[i]>largest){
+                slargest=largest;
+                largest = nums[i];
+            }
+            else if(nums[i]<largest && nums[i]>slargest){
+                slargest = nums[i];
+            }
+        }
+        if(slargest==INT_MIN){
+            return largest;
+            }
+        return slargest;  
+    }
+};

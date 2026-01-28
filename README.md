@@ -1,1 +1,21 @@
 # code
+You are given an array of integers nums. An equilibrium index of this array is any integer index such that the sum of elements at lower indices is equal to the sum of elements at higher indices. Return the smallest equilibrium index. If no equilibrium index exists, return -1.
+
+class Solution {
+public:
+    int equilibriumIndex(vector<int>& nums) {
+        int totalSum = 0;
+        for(int x:nums){
+            totalSum = totalSum + x;
+        }
+        int left=0;
+        for(int i=0;i<nums.size();i++){
+            int right = totalSum-left-nums[i];
+            if(left==right){
+                return i;
+            }
+            left = left +nums[i];
+            }
+            return -1;
+        }
+};

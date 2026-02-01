@@ -1,0 +1,26 @@
+Intersection of Two Arrays
+Easy
+Acceptance: 58.1%
+Given two arrays, write a function to compute their intersection.
+
+
+
+
+// Note : -
+// - Modify the function or parameters if needed.
+// - Signatures function may vary, adjust parameters if required.
+
+class Solution {
+public:
+    vector<int> intersectionOfTwoArrays(vector<int>& nums1, vector<int>&nums2) {
+        unordered_set<int>s(nums1.begin(),nums1.end());
+        vector<int>ans;
+            for(auto x:nums2){
+                if(s.count(x)){
+                    ans.push_back(x);
+                    s.erase(x);
+                }
+        }
+        return ans;
+    }
+};

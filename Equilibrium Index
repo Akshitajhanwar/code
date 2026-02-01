@@ -1,5 +1,7 @@
 # code
-You are given an array of integers nums. An equilibrium index of this array is any integer index such that the sum of elements at lower indices is equal to the sum of elements at higher indices. Return the smallest equilibrium index. If no equilibrium index exists, return -1.
+You are given an array of integers nums. An equilibrium index of this array is any integer index
+such that the sum of elements at lower indices is equal to the sum of elements at higher indices.
+Return the smallest equilibrium index. If no equilibrium index exists, return -1.
 
 class Solution {
 public:

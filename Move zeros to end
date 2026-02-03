@@ -1,0 +1,28 @@
+Given an array nums, write a function to move all 0's to the end of it while maintaining the relative order of the non-zero elements.
+
+
+        // Note : -
+// - Modify the function or parameters if needed.
+// - Signatures function may vary, adjust parameters if required.
+
+class Solution {
+public:
+    vector<int> moveZeroesToEnd(vector<int>& nums) {
+        vector<int>ans;
+        int count = 0;
+        for(int i=0;i<nums.size();i++){
+            if(nums[i]!=0){
+                ans.push_back(nums[i]);
+            }
+            else{
+                count++;
+            }
+        }
+        while(count>0){
+            ans.push_back(0);
+            count--;
+        }
+        return ans;
+    }
+};
+    

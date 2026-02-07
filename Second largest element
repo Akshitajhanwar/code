@@ -1,0 +1,30 @@
+Given an integer array, return the second largest element. If the second largest element does not exist, return the largest element.
+
+
+// Note : -
+// - Modify the function or parameters if needed.
+// - Signatures function may vary, adjust parameters if required.
+
+class Solution {
+public:
+    int secondLargestElement(vector<int>& nums) {
+        int largest = INT_MIN;
+        int slargest = INT_MIN;
+        for(int i=0;i<nums.size();i++){
+            if(nums[i]>largest){
+                slargest = largest ;
+                largest = nums[i];
+            }
+            else if(nums[i]<largest && nums[i]>slargest){
+                slargest = nums[i];
+            }
+            else if (largest==nums[i]){
+                slargest = largest;
+            }
+            
+           
+        }
+        return slargest;
+        
+    }
+};

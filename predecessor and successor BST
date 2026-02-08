@@ -1,0 +1,60 @@
+You are given the root of a BST and an integer key. You need to find the inorder predecessor and successor of the given key.
+If either predecessor or successor is not found, then set it to NULL.
+
+Note: In an inorder traversal the number just smaller than the target is the predecessor and the number just greater than the target is the successor. 
+
+
+
+/* BST Node
+class Node {
+   public:
+    int data;
+    Node *left;
+    Node *right;
+
+    Node(int x){
+        data = x;
+        left = NULL;
+        right = NULL;
+    }
+};
+*/
+
+class Solution {
+  public:
+       
+    vector<Node*> findPreSuc(Node* root, int key) {
+        // code here
+        Node*suc=NULL;
+        Node*pred=NULL;
+        while(root!=NULL){
+        if(root->data > key){
+            suc = root;
+            root = root->left;
+        }
+        else if(root->data < key){
+            pred = root;
+            root = root->right;
+        }
+        else{
+            if(root->left != NULL){
+                Node*temp = root->left; 
+                while(temp->right!=NULL){
+                   temp=temp->right;
+                }
+                pred = temp;
+            }
+            if(root->right != NULL){
+                Node* temp = root->right;
+                while(temp->left!=NULL){
+                    temp = temp->left;
+                }
+                suc=temp;
+            }
+            break;
+    
+        }
+        }
+        return {pred,suc};
+    }
+};

@@ -1,0 +1,30 @@
+Given a connected undirected graph containing V vertices, represented by a 2-d adjacency list adj[][],
+where each adj[i] represents the list of vertices connected to vertex i. Perform a Breadth First Search (BFS)
+traversal starting from vertex 0, visiting vertices from left to right according to the given adjacency list, 
+and return a list containing the BFS traversal of the graph.
+
+
+class Solution {
+  public:
+    vector<int> bfs(vector<vector<int>> &adj) {
+        // code here
+        int n = adj.size();
+        vector<int>vis(n,0);
+        vector<int>ans;
+        vis[0]=1;
+        queue<int>q;
+        q.push(0);
+        while(!q.empty()){
+            int node=q.front();
+            q.pop();
+            ans.push_back(node);
+            for(auto it:adj[node]){
+                if(!vis[it]){
+                    vis[it]=1;
+                    q.push(it);
+                }
+            }
+        }
+        return ans;
+    }
+};

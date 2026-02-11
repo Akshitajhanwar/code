@@ -1,0 +1,35 @@
+Chef has N friends. Chef promised to gift a pair of shoes (consisting of one left shoe and one right shoe) to each of his friends.
+Chef already has M left shoes. He needs to buy the remaining shoes from the marketplace.
+Determine the minimum number of extra shoes Chef must buy so that he can gift exactly one pair of shoes to each of his N friends.
+
+Input Format
+The first line contains an integer T, the number of test cases.
+Each test case consists of a single line containing two integers:
+N — number of Chef’s friends
+M — number of left shoes Chef already has
+
+Output Format
+For each test case, output a single integer representing the minimum number of extra shoes Chef needs to buy.
+
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	// your code goes here
+	int T;
+	cin>>T;
+	while(T--){
+	int N,M;
+	cin>>N>>M;
+	if(M>N){
+	    cout<<N<<endl;
+	}
+	else{
+	    int left = N*2-M;
+	    cout<<left<<endl;
+	    
+	}
+	
+}
+}

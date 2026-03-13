@@ -1,0 +1,25 @@
+Given an array of integers, return a new array where each element in the new array is the 
+number of elements in the original array that are strictly smaller than the element.
+
+// Note : -
+// - Modify the function or parameters if needed.
+// - Signatures function may vary, adjust parameters if required.
+
+class Solution {
+public:
+    vector<int> makeUniqueArray(vector<int>& nums) {
+        vector<int>sorted_nums=nums;
+        vector<int>ans;
+        sort(sorted_nums.begin(),sorted_nums.end());
+        map<int,int>countmap;
+        for(int i=0;i<nums.size();++i){
+            if(countmap.find(sorted_nums[i])==countmap.end()){
+                countmap[sorted_nums[i]]=i;
+            }
+        }
+        for(auto it:nums){
+            ans.push_back(countmap[it]);
+        }
+        return ans;
+    }
+};

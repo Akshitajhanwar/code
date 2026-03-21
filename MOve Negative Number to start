@@ -1,0 +1,25 @@
+Given an integer array, move all the negative numbers to the start of the array without changing 
+the order of positive numbers. The relative order of the negative numbers should be maintained.
+
+
+// Note : -
+// - Modify the function or parameters if needed.
+// - Signatures function may vary, adjust parameters if required.
+
+class Solution {
+public:
+    vector<int> moveNegativeNumberToStart(vector<int>& nums) {
+        vector<int>ans;
+        for(int i=0;i<nums.size();i++){
+            if(nums[i]<0){
+                ans.push_back(nums[i]);
+            }
+        }
+        for(int i=0;i<nums.size();i++){
+            if(nums[i]>=0){
+                ans.push_back(nums[i]);
+            }
+        }
+        return ans;
+    }
+};

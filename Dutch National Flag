@@ -1,0 +1,40 @@
+Given an array nums with n objects colored red, white, or blue, sort them in-place so that objects 
+of the same color are adjacent, with the colors in the order red, white, and blue. We will use the 
+integers 0, 1, and 2 to represent the color red, white, and blue respectively
+
+
+
+// Note : -
+// - Modify the function or parameters if needed.
+// - Signatures function may vary, adjust parameters if required.
+
+class Solution {
+public:
+    vector<int> sortColors(vector<int>& nums) {
+        int cnt=0;
+        int cnt1=0;
+        int cnt2 =0;
+        for(int i=0;i<nums.size();i++){           
+            if(nums[i]==0){
+                cnt++;
+            }
+            else if(nums[i]==1){
+                cnt1++;
+            }
+            else{
+                cnt2++;
+            }
+        }
+        int i=0;
+        while(cnt--){
+            nums[i++]=0;
+        }
+        while(cnt1--){
+            nums[i++]=1;
+        }
+        while(cnt2--){
+            nums[i++]=2;
+        }
+        return nums;
+    }
+};

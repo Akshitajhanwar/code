@@ -1,0 +1,25 @@
+ Squares of a Sorted Array
+
+class Solution {
+public:
+    vector<int> sortedSquares(vector<int>& nums) {
+        vector<int>ans(nums.size());
+        int right=nums.size()-1;
+        int left=0;
+        int pos=ans.size()-1;
+        while(left<=right){
+            int leftsqr=nums[left]*nums[left];
+            int rightsqr=nums[right]*nums[right];
+            if(leftsqr<rightsqr){
+                ans[pos]=rightsqr;
+                right--;
+            }
+            else{
+                ans[pos]=leftsqr;
+                left++;
+            }
+            pos--;
+        }
+        return ans;
+    }
+};

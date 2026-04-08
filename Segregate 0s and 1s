@@ -1,0 +1,25 @@
+Segregate 0s and 1s
+
+class Solution {
+  public:
+    void segregate0and1(vector<int> &nums) {
+        // code here
+        int j = nums.size()-1;
+        for(int i=0;i<nums.size();i++){
+            while(i<j){
+                if(nums[i]==0){
+                    i++;
+                }
+                else if(nums[j]==1){
+                    j--;
+                }
+                else{
+                    swap(nums[i],nums[j]);
+                    i++;
+                    j--;
+                }
+            }
+        }
+        return ;
+    }
+};

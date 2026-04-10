@@ -1,0 +1,27 @@
+Max Sum Subarray of size K
+
+class Solution {
+  public:
+    int maxSubarraySum(vector<int>& arr, int k) {
+        // code here
+        int low=0;
+        int n = arr.size()-1;
+        int high=k-1;
+        int sum = 0;
+        int res=sum;
+        for(int i=0;i<k;i++){
+            sum = sum+arr[i];
+        }
+        while(high<=n){
+            res=max(sum,res);
+            low++;
+            if(high==n){
+                break;
+            }
+            high++;
+            sum=sum-arr[low-1];
+            sum=sum+arr[high];
+        }
+        return res;
+    }
+};

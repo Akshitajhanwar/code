@@ -1,0 +1,27 @@
+Fruit Into Baskets
+Input: fruits = [1,2,1]
+Output: 3
+Explanation: We can pick from all 3 trees.
+
+class Solution {
+public:
+    int totalFruit(vector<int>& fruits) {
+        int low=0;
+        int high=0;
+        int maxi=-1;
+        unordered_map<int,int>mp;
+        while(high<fruits.size()){
+            mp[fruits[high]]++;
+            if(mp.size()>2){
+                mp[fruits[low]]--;
+                if(mp[fruits[low]]==0){
+                    mp.erase(fruits[low]);
+                }
+                low++;
+            }
+            maxi=max(maxi,high-low+1);
+            high++;
+        }
+        return maxi;
+    }
+};

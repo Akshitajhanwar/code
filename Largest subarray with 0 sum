@@ -1,0 +1,23 @@
+Largest subarray with 0 sum
+
+
+class Solution {
+  public:
+    int maxLength(vector<int>& arr) {
+        // code here
+        unordered_map<int , int>mp;
+        int sum=0;
+        mp[0]=-1;
+        int maxi=0;
+        for(int high=0;high<arr.size();high++){
+            sum = sum + arr[high];
+            if(mp.find(sum)!=mp.end()){
+                maxi=max(maxi,high-mp[sum]);
+            }
+            else{
+                mp[sum]=high;
+            }
+        }
+        return maxi;
+    }
+};

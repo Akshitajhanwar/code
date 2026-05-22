@@ -1,0 +1,19 @@
+class Solution {
+public:
+    bool isAnagram(string s, string t) {
+        unordered_map<char,int>smap;
+        unordered_map<char,int>tmap;
+        for(auto it:s){
+            smap[it]++;
+        }
+        for(auto to:t){
+            tmap[to]++;
+        }
+        if(s.size()==t.size()){
+            if(tmap==smap){
+                return true;
+            }
+        }
+        return false;
+    }
+};

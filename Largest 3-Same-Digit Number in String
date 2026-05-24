@@ -1,0 +1,17 @@
+class Solution {
+public:
+    string largestGoodInteger(string nums) {
+        int low=0;
+        int high=0;
+        string ans="";
+        string temp="";
+        for(high=0;high<nums.size()-2;high++){
+            if(nums[low]==nums[high+1] && nums[high+1]==nums[high+2]){
+                string curr(3,nums[low]);
+                ans=max(ans,curr);
+            }
+            low++;
+        }
+        return ans;
+    }
+};

@@ -1,0 +1,27 @@
+class Solution {
+public:
+    int countCompleteSubarrays(vector<int>& nums) {
+        int high=0;
+        int low=0;
+        int cnt=0;
+        unordered_map<int,int>mp;
+        for(auto it:nums){
+            mp[it]++;
+        }
+        int k=mp.size();
+        unordered_map<int,int>map;
+        while(high<nums.size()){
+            map[nums[high]]++;
+            while((map.size()==k)){
+                cnt=cnt+(nums.size()-high);
+                map[nums[low]]--;
+                if(map[nums[low]]==0){
+                    map.erase(nums[low]);
+                }
+                low++;
+            }
+            high++;
+        }
+        return cnt;
+    }
+};

@@ -1,0 +1,21 @@
+// User function Template for C++
+
+class Solution {
+  public:
+    int smallestSumSubarray(vector<int>& a) {
+        // Code here
+        int mini=INT_MAX;
+        int high=0;
+        int low=0;
+        int sum=0;
+        while(high<a.size()){
+            sum=sum+a[high];
+            mini=min(sum,mini);
+            if(sum>0){
+                sum=0;
+            }
+            high++;
+        }
+        return mini;
+    }
+};

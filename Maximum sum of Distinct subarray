@@ -1,0 +1,31 @@
+class Solution {
+public:
+    long long maximumSubarraySum(vector<int>& nums, int k) {
+        int high=0;
+        long long maxi=INT_MIN;
+        int low=0;
+        long long sum=0;
+        long long ans=0;
+        unordered_map<int,int>st;
+        while(high<nums.size()){
+            sum=sum+nums[high];
+            st[nums[high]]++;
+            if((high-low+1)==k){
+                maxi=max(sum,maxi);
+            }
+            if((high-low+1)>k){
+                sum=sum-nums[low];
+                st[nums[low]]--;
+                if(st[nums[low]]==0){
+                    st.erase(nums[low]);
+                }
+                low++;
+            }
+            if(high-low+1==k && st.size()==k){
+                ans=max(ans,sum);
+            }  
+            high++; 
+        }
+        return ans;
+    }
+};

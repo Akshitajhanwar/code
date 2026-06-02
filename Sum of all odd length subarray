@@ -1,0 +1,22 @@
+class Solution {
+public:
+    int sumOddLengthSubarrays(vector<int>& arr) {
+        int high=0;
+        int low=0;
+        int ans=0;
+        int sum=0;
+        while(high<arr.size()){
+            sum=sum+arr[high];
+            if((high-low+1)%2==1){
+                ans=ans+sum;
+            }
+            high++;
+            if(high==arr.size()){
+                low++;
+                high=low;
+                sum=0;
+            }
+        }
+        return ans;
+    }
+};

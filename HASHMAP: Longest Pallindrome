@@ -1,0 +1,24 @@
+class Solution {
+public:
+    int longestPalindrome(string s) {
+        unordered_map<char,int>mp;
+        int sum=0;
+        bool oddFound=false;
+        for(auto it:s){
+            mp[it]++;
+        }
+        for(auto st:mp){
+            if(st.second%2==0){
+                sum+=st.second;
+            }
+            else{
+                sum=sum+st.second-1;
+                oddFound=true;
+            }
+        }
+        if(oddFound){
+            sum++;
+        }
+        return sum;
+    }
+};
